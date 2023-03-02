@@ -1,16 +1,19 @@
 const Comment = require('../models/comment');
 const User = require("../models/user");
 
+//todo: liste des utilisateurs ayant participe au meet
 
 exports.createComment=async(req, res, next) => {
 
     console.log("create comment");
     console.log(req.query.id);
     console.log(req.body.comment);
-    /*const companyId = await User.findOne({email: req.body.})
-    if (!user) {
-        return res.status(401).json({message: 'Incorrect login/password'});
-    }*/
+    const company = await User.findOne({email: req.query.id})
+    if (company) {
+
+        
+        //return res.status(401).json({message: 'Incorrect login/password'});
+    }
 
 
  /*   const comment = await new Comment(req.body);
