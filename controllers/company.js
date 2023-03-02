@@ -1,4 +1,5 @@
 const Company = require('../models/company');
+const Comment = require("../models/comment");
 
 
 exports.createCompany=async(req, res, next) => {

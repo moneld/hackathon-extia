@@ -24,11 +24,12 @@ const userRoutes = require ('./routes/user');
 const commentRoutes = require ('./routes/comment');
 const companyRoutes = require ('./routes/company');
 const authRoutes = require ('./routes/auth');
-
+const missionRoutes = require ('./routes/mission');
 
 app.use('/api/user',userRoutes);
 app.use('/api/comment',commentRoutes);
 app.use('/api/company',companyRoutes);
 app.use('/api/auth',authRoutes);
+app.use('/api/mission',missionRoutes);
 
 module.exports = app;

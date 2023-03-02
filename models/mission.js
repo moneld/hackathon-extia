@@ -5,7 +5,6 @@ const missionSchema=new Schema({
     title:{type : String , required: true},
     startDate:{type : Date , required: true},
     endDate:{type : Date , required: true},
-    comment:{type : String , required: true},
     skill:{type : [String] , required: true},
 
 });
