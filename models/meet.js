@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const user=require('user')
+const meet=require('meet')
 const Schema = mongoose.Schema;
 
 const meetSchema=new Schema({
