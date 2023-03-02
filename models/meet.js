@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const meetSchema=new Schema({
     tag:{type : String , required: true},
     description:{type : String , required: true},
-    date:{type : String , required: true},
+    date:{type : Date , required: true},
     location:{type : String , required: true},
     link:{type : String , required: true},
     participants:{type:[user],required:false}

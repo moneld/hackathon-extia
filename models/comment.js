@@ -11,7 +11,8 @@ const commentSchema=new Schema({
     },
     companyDetails:{
         id: { type:String,required:true},
-    }
+    },
+    dateOfComment:{ type:Date,required:false,default:Date.now()}
 
 });
 module.exports=mongoose.model('Comment',commentSchema);
