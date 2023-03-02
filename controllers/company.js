@@ -2,9 +2,7 @@ const Company = require('../models/company');
 
 
 exports.createCompany=async(req, res, next) => {
-
     console.log("create Company");
-
     const company = await new Company(req.body);
     company.save()
         .then(() => res.status(201).json({ message: 'Company created !'}))
@@ -13,6 +11,7 @@ exports.createCompany=async(req, res, next) => {
 
 
 exports.getAllCompany= async(req, res, next) => {
+    console.log("get all company");
     const companies = await Company.find()
         .then(companies => res.status(200).json(companies))
         .catch(error => res.status(501).json({error}));

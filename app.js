@@ -23,11 +23,12 @@ app.use(express.json());
 const userRoutes = require ('./routes/user');
 const commentRoutes = require ('./routes/comment');
 const companyRoutes = require ('./routes/company');
-//const meetRoutes = require ('./routes/meet');
+const authRoutes = require ('./routes/auth');
+
 
 app.use('/api/user',userRoutes);
 app.use('/api/comment',commentRoutes);
 app.use('/api/company',companyRoutes);
-//app.use('/api/meet',meetRoutes);
+app.use('/api/auth',authRoutes);
 
 module.exports = app;

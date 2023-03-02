@@ -8,4 +8,4 @@ const userSchema=new Schema({
     login:{type : String,required: true},
     password:{type : String , required: true},
 });
-module.exports=mongoose.model('Participant',userSchema);
+module.exports=mongoose.model('User',userSchema);

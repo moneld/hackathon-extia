@@ -3,54 +3,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 const fs = require('fs');
 
-const sendEmail = require('../utils/sendEmail');
-
-
-function getRandoSecretKey(){
-    const key = fs.readFileSync('./secret/sensitive.key', {encoding:'utf8', flag:'r'});
-    return key;
-}
-
-
-
-exports.resetPassByEmail=(q, res, next)=>{
-
-    console.log("reset-password-by-email")
-/*
-    const user = await User.findOne({ email });
-
-    if (!user) throw new Error("User does not exist");
-    let token = await Token.findOne({ userId: user._id });
-    if (token) await token.deleteOne();
-    let resetToken = crypto.randomBytes(32).toString("hex");
-    const hash = await bcrypt.hash(resetToken, Number(bcryptSalt));
-
-    await new Token({
-        userId: user._id,
-        token: hash,
-        createdAt: Date.now(),
-    }).save();
-
-    const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
-    sendEmail(user.email,"Password Reset Request",{name: user.name,link: link,},"./template/requestResetPassword.handlebars");
-    return link;*/
-
-    sendEmail("email","object","text");
-
-
-
-
-}
-
-exports.resetPassByForm=(q, res, next)=>{
-
-
-}
-
-
 exports.signup= (req, res, next) => {
 
-    User.findOne({email:req.body.email },function(err,user){
+    const user = User.findOne({email:req.body.email },function(err,user){
         if(err){
             console.log(err.message)
         }
@@ -77,46 +32,4 @@ exports.signup= (req, res, next) => {
                 .catch(error => res.status(500).json({error}));
         }
     })
-}
-
-
-exports.login= async(req, res, next) => {
-
-    console.log("login");
-    User.findOne({ email: req.body.email })
-        .then(user => {
-            if (!user) {
-                res.status(401).json({ message: 'Incorrect login/password'});
-                //return res.redirect('/') //todo : to replace with right URL
-            }
-            bcrypt.compare(req.body.password, user.password)
-                .then(valid => {
-                    if (!valid) {
-                        res.status(401).json({ message: 'Incorrect login/password' });
-                        //return res.redirect('/') //todo : to replace with right URL
-                    }
-                    res.status(200).json({
-                        userId: user._id,
-                        token: jwt.sign({userId:user._id},getRandoSecretKey(),
-                            {expiresIn:'2h'},
-                            function (err, token){
-                            console.log("token generated at login :"+token)
-                        })
-                        /*token:jwt.sign({userId:user._id}, 'sensitive.key', { algorithm: 'RS256' }, function(err, token) {
-                            console.log(token);
-                        })*/
-                        //return res.redirect('/') //todo : to replace with right URL to redirect
-
-                    });
-                })
-                .catch(error => res.status(500).json({ error }));
-        })
-        .catch(error => res.status(500).json({ error }));
-}
-
-exports.logout= ( req, res, next) => { //todo : to do work this middleware
-    console.log("logout");
-    req.logout()
-    req.session.destroy();
-    res.redirect("/"); //return res.redirect('/') //todo : to replace with right URL to redirect
 }
