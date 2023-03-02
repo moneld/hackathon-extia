@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 //todo : send mail
 //todo : validate email | npm install express-validator
 
-
 exports.getAllUser= async(req, res, next) => {
     const users = await User.find()
         .then(users => res.status(200).json(users))

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 //Connection to mongoose
 mongoose.connect('mongodb+srv://root:root@cluster0.025ka.mongodb.net/?retryWrites=true&w=majority',
-    {   dbName:'booking',
+    {   dbName:'hackathon',
         useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -20,8 +20,13 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-
 const userRoutes = require ('./routes/user');
+const commentRoutes = require ('./routes/comment');
+const companyRoutes = require ('./routes/company');
+
 app.use('/api/user',userRoutes);
+app.use('/api/comment',commentRoutes);
+app.use('/api/company',companyRoutes);
+
 
 module.exports = app;
