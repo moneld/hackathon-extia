@@ -28,7 +28,7 @@ exports.signup= (req, res, next) => {
                         name: req.body.name,
                         firstname: req.body.firstname,
                         email: req.body.email,
-                        login: req.body.login,
+                        //login: req.body.login,
                         password: hash
                     });
                     user.save()
@@ -58,7 +58,10 @@ exports.login = async (req, res, next) => {
         token: jwt.sign({userId: user._id}, getRandomSecretKey(),
             {expiresIn: '2h'},
             function (err, token) {
+
                 console.log("token generated at login :" + token)
+                return{
+                }
             })
         /*token:jwt.sign({userId:user._id}, 'sensitive.key', { algorithm: 'RS256' }, function(err, token) {
             console.log(token);

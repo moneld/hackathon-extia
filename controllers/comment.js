@@ -1,6 +1,36 @@
 const Comment = require('../models/comment');
+const User = require("../models/user");
 
 
+exports.createComment=async(req, res, next) => {
+
+    console.log("create comment");
+    console.log(req.query.id);
+    console.log(req.body.comment);
+    /*const companyId = await User.findOne({email: req.body.})
+    if (!user) {
+        return res.status(401).json({message: 'Incorrect login/password'});
+    }*/
+
+
+ /*   const comment = await new Comment(req.body);
+    comment.save()
+        .then(() => res.status(201).json({ message: 'comment created !'}))
+        .catch(error => res.status(400).json({ error }));*/
+}
+
+/*
+exports.createComment=async(req, res, next) => {
+
+    console.log("create comment");
+    const comment = await new Comment(req.body);
+    comment.save()
+        .then(() => res.status(201).json({ message: 'comment created !'}))
+        .catch(error => res.status(400).json({ error }));
+}
+*/
+
+/*
 exports.getAllComment= async(req, res, next) => {
     const comments = await Comment.find()
         .then(comments => res.status(200).json(comments))
@@ -13,15 +43,6 @@ exports.deleteComment=async(req, res, next) => {
         .then(() => res.status(204).json({ message: 'comment deleted !'}))
         .catch(error => res.status(501).json({ error }));
 }
-
-exports.createComment=async(req, res, next) => {
-    console.log("create comment");
-    const comment = await new Comment(req.body);
-    comment.save()
-        .then(() => res.status(201).json({ message: 'comment created !'}))
-        .catch(error => res.status(400).json({ error }));
-}
-
 exports.getAllCommentUserId=async(req, res) => {
     console.log("get all comments by user id");
     try{
