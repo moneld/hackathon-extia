@@ -25,7 +25,10 @@ const commentRoutes = require ('./routes/comment');
 const companyRoutes = require ('./routes/company');
 const authRoutes = require ('./routes/auth');
 
-
+app.use((req, res, next) => {
+    console.log('Time:', Date.now())
+    next()
+})
 app.use('/api/user',userRoutes);
 app.use('/api/comment',commentRoutes);
 app.use('/api/company',companyRoutes);
