@@ -4,7 +4,8 @@ const router = express.Router();
 const commentCtrl = require('../controllers/comment');
 
 router.post('/create',commentCtrl.createComment);
-/*router.get('/all',commentCtrl.getAllComment);
+router.get('/all',commentCtrl.getAllComment);
+/*
 router.delete('/delete/:id',commentCtrl.deleteComment);
 router.get('/:id',commentCtrl.getAllCommentUserId);
 //router.put('/update/:id',commentCtrl.updateUserById);
