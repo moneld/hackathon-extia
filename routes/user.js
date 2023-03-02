@@ -3,6 +3,7 @@ const router = express.Router();
 
 const UserCtrl = require('../controllers/user');
 
+router.post('/create',UserCtrl.createUser);
 router.get('/all',UserCtrl.getAllUser);
 router.delete('/delete/:id',UserCtrl.deleteUser);
 router.get('/:id',UserCtrl.getUserById);
