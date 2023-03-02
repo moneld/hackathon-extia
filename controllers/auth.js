@@ -60,8 +60,8 @@ exports.login = async (req, res, next) => {
             function (err, token) {
 
                 console.log("token generated at login :" + token)
-                return{
-                }
+                //return{
+                //}
             })
         /*token:jwt.sign({userId:user._id}, 'sensitive.key', { algorithm: 'RS256' }, function(err, token) {
             console.log(token);

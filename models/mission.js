@@ -6,6 +6,13 @@ const missionSchema=new Schema({
     startDate:{type : Date , required: true},
     endDate:{type : Date , required: true},
     skill:{type : [String] , required: true},
+    company:{
+        id:{type : String , required: true},
+        name:{type : String , required: true},
+        address:{type : String , required: true},
+    }
+
+
 
 });
 module.exports=mongoose.model('Mission',missionSchema);
