@@ -10,10 +10,8 @@ const meetSchema=new Schema({
         house:{type : String , required: true},
         city:{type : String , required: true},
     },
-    img_url:{type : String , required: true}
-    /*,
-    link:{type : String , required: true},
-    participants:{type:[user],required:false}*/
-
+    img_url:{type : String , required: true},
+    title:{type : String , required: true}
+    //user:{type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 module.exports=mongoose.model('Meet',meetSchema);

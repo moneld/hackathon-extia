@@ -3,6 +3,7 @@ const Event = require('../models/event');
 
 
 exports.createEvent=async(req, res, next) => {
+
     console.log(req.body);
     const event = await new Event(req.body);
     event.save()
