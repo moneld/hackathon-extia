@@ -12,13 +12,6 @@ exports.getAllUser= async(req, res, next) => {
         .catch(error => res.status(501).json({error}));
 }
 
-exports.deleteUser=async(req, res, next) => {
-    console.log("delete user");
-    await User.deleteOne({id:req.params.id})
-        .then(() => res.status(204).json({ message: 'user deleted !'}))
-        .catch(error => res.status(501).json({ error }));
-}
-
 exports.createUser=async(req, res, next) => {
     console.log("create user");
     const user = await new User(req.body);
@@ -29,6 +22,7 @@ exports.createUser=async(req, res, next) => {
 
 exports.getUserById=async(req, res) => {
     console.log("get user by id");
+
     try{
         let user=await User.findOne({id:req.params.id});
         if (user){
@@ -38,6 +32,14 @@ exports.getUserById=async(req, res) => {
     } catch(error){
         res.status(501).json({ message : error.message })
     }
+}
+
+/*
+exports.deleteUser=async(req, res, next) => {
+    console.log("delete user");
+    await User.deleteOne({id:req.params.id})
+        .then(() => res.status(204).json({ message: 'user deleted !'}))
+        .catch(error => res.status(501).json({ error }));
 }
 
 exports.updateUserById= async(req, res) => {
@@ -57,4 +59,4 @@ exports.updatePartUserById=async(req, res) => {
     }).catch((error) => {
         res.status(501).json({message : error.message});
     })
-}
+}*/
