@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 
 const Schema = mongoose.Schema;
 const commentSchema=new Schema({
-    note:{type : String,required: true},
+    mark:{type : Number,required: true , default: 0},
     content:{type : String , required: true},
     userDetails:{
             id: { type:String,required:true},
