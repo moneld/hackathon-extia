@@ -25,11 +25,13 @@ const commentRoutes = require ('./routes/comment');
 const companyRoutes = require ('./routes/company');
 const authRoutes = require ('./routes/auth');
 const missionRoutes = require ('./routes/mission');
+const eventRoutes= require ('./routes/event');
 
 app.use('/api/user',userRoutes);
 app.use('/api/comment',commentRoutes);
 app.use('/api/company',companyRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/mission',missionRoutes);
+app.use('/api/event',eventRoutes);
 
 module.exports = app;
