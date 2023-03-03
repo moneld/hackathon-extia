@@ -1,5 +1,5 @@
 const Mission = require('../models/mission');
-const User = require("../models/user");
+
 
 
 exports.getAllMission= async(req, res, next) => {
@@ -9,7 +9,7 @@ exports.getAllMission= async(req, res, next) => {
 }
 
 exports.createMission=async(req, res, next) => {
-    console.log("create user");
+    console.log("create mission ");
     const mission = await new Mission(req.body);
     mission.save()
         .then(() => res.status(201).json({ message: 'mission created !'}))
