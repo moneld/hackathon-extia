@@ -10,9 +10,7 @@ const missionSchema=new Schema({
         id:{type : String , required: true},
         name:{type : String , required: true},
         address:{type : String , required: true},
-    }
-
-
-
+    },
+    description:{type : String , required: true}
 });
 module.exports=mongoose.model('Mission',missionSchema);
