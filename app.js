@@ -26,6 +26,7 @@ const companyRoutes = require ('./routes/company');
 const authRoutes = require ('./routes/auth');
 const missionRoutes = require ('./routes/mission');
 const eventRoutes= require ('./routes/event');
+const meetRoutes= require ('./routes/meet');
 
 app.use('/api/user',userRoutes);
 app.use('/api/comment',commentRoutes);
@@ -33,5 +34,6 @@ app.use('/api/company',companyRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/mission',missionRoutes);
 app.use('/api/event',eventRoutes);
+app.use('/api/meet',meetRoutes);
 
 module.exports = app;

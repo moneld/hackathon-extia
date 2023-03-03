@@ -1,6 +1,6 @@
 const Event = require('../models/event');
 
-//todo: liste des utilisateurs ayant participe au meet
+
 
 exports.createEvent=async(req, res, next) => {
     console.log(req.body);
