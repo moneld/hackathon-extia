@@ -11,6 +11,7 @@ const commentSchema=new Schema({
     },
     companyDetails:{
         id: { type:String,required:true},
+        name: { type:String,required:true}
     },
     dateOfComment:{ type:Date,required:false,default:Date.now()}
 
