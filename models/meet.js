@@ -9,7 +9,9 @@ const meetSchema=new Schema({
         street:{type : String , required: true},
         house:{type : String , required: true},
         city:{type : String , required: true},
-    }/*,
+    },
+    img_url:{type : String , required: true}
+    /*,
     link:{type : String , required: true},
     participants:{type:[user],required:false}*/
 
